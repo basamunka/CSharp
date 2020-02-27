@@ -1,0 +1,74 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Zadanie9
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string text;
+            Console.WriteLine("Podaj tekst");
+            text = Console.ReadLine().ToString();
+            ArrayList myList = new ArrayList();
+            int index;
+            string newText;
+
+            text = text.Replace(".","").Replace(",","");
+
+            while (text.IndexOf(" ", 0, text.Length) >=0)
+            {
+            index = text.IndexOf(" ", 0, text.Length);
+            if (index >= 0)
+            {
+                newText = text.Remove(index, text.Length - index);
+                text = text.Remove(0, index + 1);
+                myList.Add(newText);
+            }                            
+            }
+            myList.Add(text);
+
+            var comparer = StringComparer.OrdinalIgnoreCase; //żeby słownik nie był  CaseSensitive
+            Dictionary<string, int> myList2 = new Dictionary<string, int>(comparer);
+            
+            int count = 0;
+            foreach (var item in myList)
+            {
+                foreach (var item2 in myList)
+                {
+                    if (string.Equals(item.ToString(),item2.ToString(), StringComparison.OrdinalIgnoreCase))
+                    {
+                        count = count + 1;
+                    }                    
+                }
+
+                if(!myList2.ContainsKey(item.ToString()))
+                { 
+                    myList2.Add(item.ToString(), count);
+                }
+
+                count = 0;
+            }
+
+
+            var items = from pair in myList2
+                        orderby pair.Value descending, pair.Key ascending
+                        select pair;
+
+      
+            foreach (KeyValuePair<string, int> pair in items)
+            {
+                Console.WriteLine("{0}: {1}", pair.Key, pair.Value);
+            }
+
+
+
+
+            Console.ReadKey();
+        }
+    }
+}
