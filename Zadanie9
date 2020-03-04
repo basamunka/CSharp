@@ -11,9 +11,7 @@ namespace Zadanie9
     {
         static void Main(string[] args)
         {
-            string text;
-            Console.WriteLine("Podaj tekst");
-            text = Console.ReadLine().ToString();
+            string text = System.IO.File.ReadAllText(@"C: \Users\m.merena\source\repos\Zadanie9\Zadanie9\File.txt");
             ArrayList myList = new ArrayList();
             int index;
             string newText;
