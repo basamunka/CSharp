@@ -1,0 +1,95 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Zadanie2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double[] tabX = new double[3];
+            double[] tabY = new double[3];
+            double[] tabZ = new double[3];
+            double det;
+
+            Console.WriteLine("Sprawdzamy współliniowość na dwóch czy trzech wymiarach?");
+            int N = int.Parse(Console.ReadLine());
+            if (N == 2)
+            { 
+                for (int i = 0; i <= 2; i++)
+                {
+                    Console.WriteLine($"Podaj współrzędną x punktu {i+1}.");
+                    tabX[i] = double.Parse(Console.ReadLine());
+
+                    Console.WriteLine($"Podaj współrzędną y punktu {i+1}.");
+                    tabY[i] = double.Parse(Console.ReadLine());
+
+                }
+                 //Wyznacznik macierzy
+                det = tabX[0] * tabY[1] + tabX[1] * tabY[2] + tabX[2] * tabY[0] - tabX[2] * tabY[1] - tabX[0] * tabY[2] - tabX[1] * tabY[0];
+
+
+                if (det == 0)
+                {
+                    Console.WriteLine("Punkty są współliniowe");
+                }
+                else
+                {
+                    Console.WriteLine("Punkty NIE są współliniowe");
+                }
+      
+            }
+            else if (N == 3)
+            {
+                for (int i = 0; i <= 2; i++)
+                {
+                    Console.WriteLine($"Podaj współrzędną x punktu {i + 1}.");
+                    tabX[i] = double.Parse(Console.ReadLine());
+
+                    Console.WriteLine($"Podaj współrzędną y punktu {i + 1}.");
+                    tabY[i] = double.Parse(Console.ReadLine());
+
+                    Console.WriteLine($"Podaj współrzędną y punktu {i + 1}.");
+                    tabZ[i] = double.Parse(Console.ReadLine());
+
+                }
+                //Wyznacznik macierzy
+                double x, y, z;
+                double a21 = tabX[1] - tabX[0];
+                double a22 = tabY[1] - tabY[0];
+                double a23 = tabZ[1] - tabZ[0];
+
+                double a31 = tabX[2] - tabX[0];
+                double a32 = tabY[2] - tabY[0];
+                double a33 = tabZ[2] - tabZ[0];
+
+                x = a22 * a33 - a23 * a32;
+                y = a23 * a31 - a21 * a33;
+                z = a21 * a32 - a22 * a31;
+                det = x + y + z;
+
+
+                if(x == 0 && y == 0 && z == 0)
+                {
+                    Console.WriteLine("Punkty są współliniowe");
+                }
+                else
+                {
+                    Console.WriteLine("Punkty NIE są współliniowe");
+                }
+                
+            }
+            else
+            {
+
+                Console.WriteLine("Nie damy rady obliczyć współliniowości dla tylu wymiarów.");
+            }
+
+            Console.ReadKey();
+
+        }
+    }
+}
