@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Zadanie1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int m = 0;
+            var myList = new List<Int32>();
+
+            Console.WriteLine("Podaj x0");
+            int n = int.Parse(Console.ReadLine());
+
+            while (n != 1)
+            {
+                if (n % 2 == 0)
+                {
+
+                    myList.Add(n);
+                    n = n / 2;
+                    m = ++m;
+                }
+                else
+                {
+                    myList.Add(n);
+                    n = 3 * n + 1;
+                    m = ++m;
+                }
+            }
+            Console.WriteLine("x = 1 dla m = " + m);
+            Console.WriteLine("x_max = " + myList.Max());
+            Console.WriteLine("x_max dla k = " + myList.IndexOf(myList.Max()));
+            Console.ReadKey();
+        }
+    }
+}
