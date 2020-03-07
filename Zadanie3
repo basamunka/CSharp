@@ -1,0 +1,99 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Zadanie3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int m = 1000;
+            int d = 500;
+            int c = 100;
+            int l = 50;
+            int x = 10;
+            int v = 5;
+            int i = 1;
+
+            Console.WriteLine("Podaj liczbę");
+            int liczba = int.Parse(Console.ReadLine());
+
+            string wynik = null;
+
+            while (liczba >= m)
+            {
+                wynik = String.Concat(wynik, 'M');
+                liczba = liczba - m;
+            }
+            if (liczba >= m - c)
+            {
+                wynik = String.Concat(wynik, 'C', 'M');
+                liczba = liczba - (m - c);
+            }
+            if (liczba >= d)
+            {
+                wynik = String.Concat(wynik, 'D');
+                liczba = liczba - d;
+            }
+            if (liczba >= d - c)
+            {
+                wynik = String.Concat(wynik, 'C', 'D');
+                liczba = liczba - (d - c);
+            }
+            while (liczba >= c)
+            {
+                wynik = String.Concat(wynik, 'C');
+                liczba = liczba - c;
+            }
+            if (liczba >= c - x)
+            {
+                wynik = String.Concat(wynik, 'X', 'C');
+                liczba = liczba - (c - x);
+            }
+            if (liczba >= l)
+            {
+                wynik = String.Concat(wynik, 'L');
+                liczba = liczba - l;
+            }
+            if (liczba >= l - x)
+            {
+                wynik = String.Concat(wynik, 'X', 'L');
+                liczba = liczba - (l - x);
+            }
+            while (liczba >= x)
+            {
+                wynik = String.Concat(wynik, 'X');
+                liczba = liczba - x;
+            }
+            if (liczba >= x - i)
+            {
+                wynik = String.Concat(wynik, 'I', 'X');
+                liczba = liczba - (x - i);
+            }
+            if (liczba >= v)
+            {
+                wynik = String.Concat(wynik, 'V');
+                liczba = liczba - v;
+            }
+            if (liczba >= v - i)
+            {
+                wynik = String.Concat(wynik, 'I', 'V');
+                liczba = liczba - (v - i);
+            }
+
+            while (liczba >= i)
+            {
+                wynik = String.Concat(wynik, 'I');
+                liczba = liczba - i;
+            }
+
+            Console.WriteLine("Wynik: " + wynik);
+
+
+            Console.ReadKey();
+        }
+    }
+}
