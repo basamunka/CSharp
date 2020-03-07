@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Przywitanie
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n, k;
+
+            Console.WriteLine("Podaj liczbę n");
+            n = int.Parse(Console.ReadLine());
+            Console.WriteLine("Podaj liczbę k:");
+            k = int.Parse(Console.ReadLine());
+
+            if (n <= k)
+            {
+                while (n <= k)
+                {
+                    Console.WriteLine(n);
+                    n++;
+                }
+                Console.ReadKey();
+            }
+            else
+            {
+                while (k <= n)
+                {
+                    Console.WriteLine(n);
+                    n--;
+                }
+                Console.ReadKey();
+            }
+
+            
+        }
+    }
+}
