@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Zadanie5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string word = "eeaaaabbccdfg";
+            char[] word2 = word.ToCharArray();
+
+            string word3 = null;
+
+            for (int i = 0; i < word2.Length;)
+            {
+                word3 = word3 + word2[i].ToString();
+
+                int k = 1;
+   
+                for (int j = i+1; j < word2.Length; j++)
+                {                 
+                    if (word2[i] == word2[j])
+                    {
+                        k = k + 1;
+                    }
+                }
+                i = i + k;
+                word3 = word3 + k;                              
+            }
+
+            Console.WriteLine("Wynik: "+word3);
+            Console.ReadKey();
+
+        }
+    }
+}
