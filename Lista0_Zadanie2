@@ -1,0 +1,57 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace Zadanie2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var myList = new List<Int32>();
+
+            Console.WriteLine("Podaj liczby");
+            int i = 1;
+            
+            while (i != 0)
+            {
+                i = int.Parse(Console.ReadLine());
+
+                myList.Add(i);
+            }
+            myList.Remove(0);
+
+            Console.WriteLine("Posortowana tablica:");
+            myList.Sort();
+            foreach (var item in myList)
+                Console.WriteLine(item);
+
+            double count = myList.Count;
+            Console.WriteLine("Ilość - " + count);
+            Console.WriteLine("Min - " + myList.Min());
+            Console.WriteLine("Max - " + myList.Max());
+            Console.WriteLine("Średnia - " + myList.Average());
+
+
+            int floor = Convert.ToInt32(Math.Floor((count) / 2));
+    
+            double mediana = (myList[floor - 1] + myList[floor]) /2d;
+
+            if (count % 2 == 0)
+            {
+                Console.WriteLine("Mediana - " + mediana);
+            }
+            else
+            {
+                Console.WriteLine("Mediana - " + myList[floor]);
+            }
+                    
+            Console.ReadKey();
+        
+        }
+    }
+}
